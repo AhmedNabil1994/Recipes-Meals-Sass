@@ -4,7 +4,11 @@ import Layout from "./components/layout/Layout";
 import Home from "./components/home/Home";
 import MealDetails from "./components/meal-details/MealDetails";
 import NotFound from "./components/not-found/NotFound";
-import './App.scss'
+import "./App.scss";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+
+const query = new QueryClient();
 
 const router = createHashRouter([
   {
@@ -14,6 +18,10 @@ const router = createHashRouter([
     children: [
       {
         index: true,
+        element: <Home />,
+      },
+      {
+        path: "/category/:category",
         element: <Home />,
       },
       {
@@ -29,7 +37,14 @@ const router = createHashRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <>
+      <QueryClientProvider client={query}>
+        <RouterProvider router={router} />;
+        <ReactQueryDevtools />
+      </QueryClientProvider>
+    </>
+  );
 }
 
 export default App;
