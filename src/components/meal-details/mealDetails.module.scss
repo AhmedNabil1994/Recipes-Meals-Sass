@@ -1,5 +1,6 @@
 @import "../../scss/_variables";
 @import "../../scss/_placeholders";
+@import "../../scss/_mixin";
 
 .details {
   padding: 1rem;
@@ -18,19 +19,14 @@
       @extend %center;
       column-gap: 1rem;
       li {
-        color: white;
-        padding: 0.5rem 1rem;
-        border-radius: 0.5rem;
         &:first-of-type {
-          background-color: $secondary-color;
+          @include mealDetailsBtn($secondary-color);
         }
         &:last-of-type {
-          background-color: $main-color;
+          @include mealDetailsBtn($main-color);
         }
         a {
-          display: flex;
-          justify-content: center;
-          align-items: center;
+          @extend %center;
           column-gap: 0.5rem;
         }
       }
@@ -46,8 +42,8 @@
         font-size: 1.5rem;
         font-weight: 600;
         margin-bottom: 1rem;
-        border-bottom: 4px solid #e5e7eb;
         padding: 0.5rem;
+        border-bottom: 4px solid #e5e7eb;
       }
       ul li {
         display: flex;
