@@ -1,10 +1,10 @@
-@import "../../sass/_variables";
+@import "../../scss/_variables";
+@import "../../scss/_placeholders";
 
 .meal {
   padding: 0 0.75rem;
   text-align: center;
   div {
-    // position: relative;
     padding: 3rem 3rem 1rem 3rem;
     background-color: white;
     border-radius: 35px;
@@ -21,10 +21,8 @@
       font-weight: 600;
     }
     h3 {
+      @extend %center;
       color: $main-hover-color;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       column-gap: 0.5rem;
     }
     button {
