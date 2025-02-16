@@ -4,6 +4,7 @@ import { NavLink, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import Meal from "./../meal/Meal";
+import Loader from "./../loader/Loader";
 
 export default function Home() {
   const allCategories = [
@@ -33,7 +34,7 @@ export default function Home() {
     return await axios.get(url);
   };
 
-  const { data: meals } = useQuery({
+  const { data: meals, isLoading } = useQuery({
     queryKey: category ? ["all-meals", category] : ["all-meals"],
     queryFn: getMeals,
     select: (meals) => meals.data.meals,
@@ -42,47 +43,55 @@ export default function Home() {
   console.log(meals, "all meals");
 
   return (
-    <section className={`${style.home}`}>
-      <h1>Learn, Cook, Eat Your Food</h1>
-      <div className="sm:hidden mt-8">
-        <select
-          value={category}
-          onChange={(e) =>
-            navigate(
-              e.target.value === "All" ? "/" : `/category/${e.target.value}`
-            )
-          }
-        >
-          <option value="All">All</option>
-          {allCategories.map((cat, idx) => (
-            <option key={idx} value={cat}>
-              {cat}
-            </option>
-          ))}
-        </select>
-      </div>
-      <ul className="hidden mt-8 sm:flex flex-wrap gap-4">
-        {/* "/" ==> resets the route */}
-        <li>
-          <NavLink className={"link"} to={"/"}>
-            All
-          </NavLink>
-        </li>
-        {allCategories.map((cat, idx) => (
-          <li key={idx}>
-            <NavLink className={"link"} to={`/category/${cat}`}>
-              {cat}
-            </NavLink>
-          </li>
-        ))}
-      </ul>
-      {meals && (
-        <div className={`flex flex-wrap mt-24 ${style.meals}`}>
-          {meals.map((meal) => (
-            <Meal meal={meal} key={meal.idMeal} />
-          ))}
-        </div>
+    <>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <section className={`${style.home}`}>
+          <h1>Learn, Cook, Eat Your Food</h1>
+          <div className="sm:hidden mt-8">
+            <select
+              value={category}
+              onChange={(e) =>
+                navigate(
+                  e.target.value === "All" ? "/" : `/category/${e.target.value}`
+                )
+              }
+            >
+              <option value="All">All</option>
+              {allCategories.map((cat, idx) => (
+                <option key={idx} value={cat}>
+                  {cat}
+                </option>
+              ))}
+            </select>
+          </div>
+          <ul className="hidden mt-8 sm:flex flex-wrap gap-4">
+            {/* "/" ==> resets the route */}
+            <li>
+              <NavLink className={"link"} to={"/"}>
+                All
+              </NavLink>
+            </li>
+            {allCategories.map((cat, idx) => (
+              <li key={idx}>
+                <NavLink className={"link"} to={`/category/${cat}`}>
+                  {cat}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+          {meals ? (
+            <div className={`flex flex-wrap mt-24 ${style.meals}`}>
+              {meals.map((meal) => (
+                <Meal meal={meal} key={meal.idMeal} />
+              ))}
+            </div>
+          ) : (
+            <p className={style.notFound}>No current meals match your result</p>
+          )}
+        </section>
       )}
-    </section>
+    </>
   );
 }

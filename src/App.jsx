@@ -21,11 +21,11 @@ const router = createHashRouter([
         element: <Home />,
       },
       {
-        path: "/category/:category",
+        path: "category/:category",
         element: <Home />,
       },
       {
-        path: "mealdetails",
+        path: "mealdetails/:id",
         element: <MealDetails />,
       },
       {
@@ -41,7 +41,7 @@ function App() {
     <>
       <QueryClientProvider client={query}>
         <RouterProvider router={router} />
-        {/* <ReactQueryDevtools /> */}
+        <ReactQueryDevtools />
       </QueryClientProvider>
     </>
   );
