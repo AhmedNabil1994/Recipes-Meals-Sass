@@ -15,7 +15,7 @@ export default function Meal({ meal }) {
           </h3>
         )}
         <button>
-          <Link to={"#"}>View Recipe</Link>
+          <Link to={`/mealdetails/${meal.idMeal}`}>View Recipe</Link>
         </button>
       </div>
     </div>
