@@ -1,3 +1,5 @@
+@import "../../sass/_variables";
+
 .sideMenu {
   ul {
     margin-top: 1.5rem;
@@ -8,7 +10,7 @@
       }
       &:first-child a {
         transition: inherit;
-        background-color: #f29724;
+        background-color: $menu-color;
         color: white;
         display: flex;
         align-items: center;
@@ -17,7 +19,7 @@
         font-size: 1.125rem;
         border-radius: 0.75rem;
         margin-bottom: 1.5rem;
-        box-shadow: 0 8px 14px -3px #f29724;
+        box-shadow: 0 8px 14px -3px $menu-color;
         &:hover {
           box-shadow: none;
         }

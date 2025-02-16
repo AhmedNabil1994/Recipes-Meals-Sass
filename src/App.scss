@@ -1,10 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+@import "./sass/_variables";
+
 body {
-  font-family: cursive;
+  font-family: $body-font;
   background-color: #f4f2ee;
 }
 
-.active.link ,
+.active.link,
 .active:hover.link {
   background-color: black;
   color: white;

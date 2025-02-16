@@ -1,9 +1,10 @@
+@import "../../sass/_variables";
+
 .details {
   padding: 1rem;
   .left {
     h1 {
-      font-family: Pacifico;
-    //   font-size: 3rem;
+      font-family: $title-font;
       font-weight: 600;
       margin-bottom: 1rem;
     }
@@ -22,10 +23,10 @@
         padding: 0.5rem 1rem;
         border-radius: 0.5rem;
         &:first-of-type {
-          background-color: #dc2626;
+          background-color: $secondary-color;
         }
         &:last-of-type {
-          background-color: #21ba75;
+          background-color: $main-color;
         }
         a {
           display: flex;

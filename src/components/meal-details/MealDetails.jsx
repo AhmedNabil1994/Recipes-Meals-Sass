@@ -18,14 +18,14 @@ export default function MealDetails() {
   const { data: meal, isLoading } = useQuery({
     queryKey: ["meal-details", id],
     queryFn: getMealDetails,
-    select: (meal) => meal.data.meals[0],
+    select: (meal) => (meal.data.meals ? meal.data.meals[0] : null),
   });
 
   console.log(meal, "meal details");
 
   return isLoading ? (
     <Loader />
-  ) : meal === "I" ? (
+  ) : meal === null || meal ==="I" ? (
     <NotFound />
   ) : (
     meal && (

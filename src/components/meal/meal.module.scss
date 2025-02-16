@@ -1,3 +1,5 @@
+@import "../../sass/_variables";
+
 .meal {
   padding: 0 0.75rem;
   text-align: center;
@@ -19,7 +21,7 @@
       font-weight: 600;
     }
     h3 {
-      color: #059669;
+      color: $main-hover-color;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -27,14 +29,14 @@
     }
     button {
       margin-top: 1rem;
-      background-color: #21ba75;
+      background-color: $main-color;
       color: white;
       font-weight: 600;
       padding: 0.5rem 2rem;
       border-radius: 30px;
       transition: inherit;
       &:hover {
-        background-color: #059669;
+        background-color: $main-hover-color;
         transform: scale(1.05);
       }
     }
