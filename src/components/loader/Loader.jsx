@@ -1,9 +1,11 @@
 import React from "react";
-import style from "./loader.module.css";
+import style from "./loader.module.scss";
 
 export default function Loader() {
   return (
-    <div className="flex justify-center items-center fixed inset-0 bg-black/35 z-[60]">
+    <div
+      className={`${style.loaderContainer}`}
+    >
       <div className={`${style.loader}`}></div>
     </div>
   );

@@ -1,13 +1,15 @@
+@import "../../scss/_variables";
+
 .home {
   padding: 2rem 1rem;
   h1 {
-    font-family: "Pacifico";
+    font-family: $title-font;
     font-weight: 700;
     font-size: 2.25rem;
     background-image: linear-gradient(
       to right,
-      #f29724,
-      rgba(202, 16, 35, 0.77),
+      $menu-color,
+      #ca1023c4,
       #c90519
     );
     -webkit-background-clip: text;
@@ -38,13 +40,11 @@
         border-radius: 1.25rem;
         font-weight: 500;
         box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-        // 0 2px 4px -2px rgb(0 0 0 / 0.1);
         transition: all 0.3s;
         &:hover {
           color: #4b5563;
           background-color: #f9fafb;
           box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
-          //   0 8px 10px -6px rgb(0 0 0 / 0.1);
         }
       }
     }

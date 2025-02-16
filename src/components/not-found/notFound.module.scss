@@ -1,11 +1,11 @@
+@import "../../scss/_placeholders";
+
 .notFound {
+  @extend %center;
   min-height: 100vh;
-  display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   text-align: center;
-  h2{
+  h2 {
     margin-bottom: 2.5rem;
     font-weight: 500;
   }

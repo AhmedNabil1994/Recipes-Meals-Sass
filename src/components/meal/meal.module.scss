@@ -1,8 +1,10 @@
+@import "../../scss/_variables";
+@import "../../scss/_placeholders";
+
 .meal {
   padding: 0 0.75rem;
   text-align: center;
   div {
-    // position: relative;
     padding: 3rem 3rem 1rem 3rem;
     background-color: white;
     border-radius: 35px;
@@ -19,22 +21,20 @@
       font-weight: 600;
     }
     h3 {
-      color: #059669;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      @extend %center;
+      color: $main-hover-color;
       column-gap: 0.5rem;
     }
     button {
       margin-top: 1rem;
-      background-color: #21ba75;
+      background-color: $main-color;
       color: white;
       font-weight: 600;
       padding: 0.5rem 2rem;
       border-radius: 30px;
       transition: inherit;
       &:hover {
-        background-color: #059669;
+        background-color: $main-hover-color;
         transform: scale(1.05);
       }
     }
