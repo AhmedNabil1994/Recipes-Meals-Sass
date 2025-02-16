@@ -1,6 +1,6 @@
 import React from "react";
 import style from "./home.module.scss";
-import { Link, NavLink, useNavigate, useParams } from "react-router-dom";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import Meal from "./../meal/Meal";
@@ -33,7 +33,7 @@ export default function Home() {
     return await axios.get(url);
   };
 
-  const { data: meals, isLoading } = useQuery({
+  const { data: meals } = useQuery({
     queryKey: category ? ["all-meals", category] : ["all-meals"],
     queryFn: getMeals,
     select: (meals) => meals.data.meals,

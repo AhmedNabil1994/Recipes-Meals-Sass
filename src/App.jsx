@@ -40,8 +40,8 @@ function App() {
   return (
     <>
       <QueryClientProvider client={query}>
-        <RouterProvider router={router} />;
-        <ReactQueryDevtools />
+        <RouterProvider router={router} />
+        {/* <ReactQueryDevtools /> */}
       </QueryClientProvider>
     </>
   );
