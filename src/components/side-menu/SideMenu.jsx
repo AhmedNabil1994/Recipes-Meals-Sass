@@ -40,7 +40,7 @@ export default function SideMenu() {
             <ul>
               <li>
                 <Link
-                  to="#"
+                  to="/"
                 >
                   <GiMeal />
                   <span className="ms-3">Meals</span>
@@ -48,7 +48,7 @@ export default function SideMenu() {
               </li>
               <li>
                 <Link
-                  to="#"
+                  to="/"
                 >
                   <GiMeal />
                   <span className="ms-3">Ingredients</span>
@@ -56,7 +56,7 @@ export default function SideMenu() {
               </li>
               <li>
                 <Link
-                  to="#"
+                  to="/"
                 >
                   <GiMeal />
                   <span className="ms-3">Area</span>
