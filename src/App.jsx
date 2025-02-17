@@ -22,6 +22,21 @@ const router = createHashRouter([
         index: true,
         element: <Home />,
       },
+      
+      {
+        path: "/",
+        element: <Home />,
+      //   children: [
+      //   {
+      //     path: "category/:category",
+      //     element: <Home />,
+      //   },
+      //   {
+      //     path: "mealdetails/:id",
+      //     element: <MealDetails />,
+      //   },
+      // ],
+      },
       {
         path: "category/:category",
         element: <Home />,

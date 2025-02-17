@@ -1,13 +1,6 @@
 import React from "react";
-import style from "./ingredients.module.scss";
-import { Link, NavLink, useNavigate, useParams } from "react-router-dom";
-import axios from "axios";
-import { useQuery } from "@tanstack/react-query";
-import Loader from "./../loader/Loader";
 
-export default function Ingredients() {
-
-
+export default function Area() {
   const getIngredients = async () => {
     return await axios.get(
       `https://www.themealdb.com/api/json/v1/1/list.php?i=list`
@@ -21,7 +14,6 @@ export default function Ingredients() {
   });
 
   console.log(ingredients, "all ingredients");
-
   return (
     <>
       {isLoading ? (
