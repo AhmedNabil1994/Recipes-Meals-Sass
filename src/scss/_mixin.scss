@@ -36,7 +36,14 @@
 
   &:hover {
     @each $property, $value in $hover {
-      #{$property}: #{$value} ;
+      #{$property}: #{$value};
     }
   }
+}
+
+@mixin card($paddding) {
+  padding: $paddding;
+  background-color: white;
+  border-radius: 35px;
+  transition: all 0.3s;
 }

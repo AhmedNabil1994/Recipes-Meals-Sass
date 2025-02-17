@@ -1,0 +1,10 @@
+@import "../../scss/_placeholders";
+
+.filterByIngredients {
+  h1 {
+    @extend %heading1Style;
+  }
+  .meals {
+    @extend %rowMarginsAndGutter;
+  }
+}

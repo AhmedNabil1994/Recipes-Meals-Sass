@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import style from "./sideMenu.module.scss";
 import logo from "../../assets/logo-BfNap0Pe.png";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { GiMeal } from "react-icons/gi";
 
 export default function SideMenu() {
+  const [activeLinks, setActiveLinks] = useState([false, false, false]);
+  const handleLinkClick = (index) => {
+    const updatedLinks = activeLinks.map((_, idx) =>
+      idx === index ? true : false
+    );
+    setActiveLinks(updatedLinks);
+  };
+
   return (
     <>
       <section className={style.sideMenu}>
@@ -39,28 +47,35 @@ export default function SideMenu() {
             <img src={logo} className="" alt="Recipe Logo" />
             <ul>
               <li>
-                <Link
-                  to="/"
+                <NavLink
+                  className={activeLinks[0] ? "menuLink active" : "menuLink"}
+                  // className={"menuLink"}
+                  onClick={() => handleLinkClick(0)}
+                  to={"/"}
                 >
                   <GiMeal />
                   <span className="ms-3">Meals</span>
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link
-                  to="/"
+                <NavLink
+                  className={activeLinks[1] ? "menuLink active" : "menuLink"}
+                  onClick={() => handleLinkClick(1)}
+                  to={"/ingredients"}
                 >
                   <GiMeal />
                   <span className="ms-3">Ingredients</span>
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link
-                  to="/"
+                <NavLink
+                  className={activeLinks[2] ? "menuLink active" : "menuLink"}
+                  onClick={() => handleLinkClick(2)}
+                  to={"/area"}
                 >
                   <GiMeal />
                   <span className="ms-3">Area</span>
-                </Link>
+                </NavLink>
               </li>
             </ul>
           </div>

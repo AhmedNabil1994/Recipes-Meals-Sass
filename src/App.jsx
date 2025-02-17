@@ -3,10 +3,12 @@ import { createHashRouter, RouterProvider } from "react-router-dom";
 import Layout from "./components/layout/Layout";
 import Home from "./components/home/Home";
 import MealDetails from "./components/meal-details/MealDetails";
+import Ingredients from "./components/ingredients/Ingredients";
 import NotFound from "./components/not-found/NotFound";
 import "./App.scss";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import FilterByIngredients from "./components/filter-by-ingredients/FilterByIngredients";
 
 const query = new QueryClient();
 
@@ -27,6 +29,14 @@ const router = createHashRouter([
       {
         path: "mealdetails/:id",
         element: <MealDetails />,
+      },
+      {
+        path: "ingredients",
+        element: <Ingredients />,
+      },
+      {
+        path: "ingredients/:mealName",
+        element: <FilterByIngredients />,
       },
       {
         path: "*",
