@@ -39,6 +39,7 @@ export default function Ingredients() {
                       <img
                         src={`https://www.themealdb.com/images/ingredients/${ingredient.strIngredient}.png`}
                         alt={ingredient.strIngredient}
+                        loading="lazy"
                       />
                       <h2>{ingredient.strIngredient}</h2>
                     </div>
