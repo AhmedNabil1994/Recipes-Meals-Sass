@@ -1,14 +1,23 @@
-import { useState } from "react";
-import { createHashRouter, RouterProvider } from "react-router-dom";
-import Layout from "./components/layout/Layout";
-import Home from "./components/home/Home";
-import MealDetails from "./components/meal-details/MealDetails";
-import Ingredients from "./components/ingredients/Ingredients";
-import NotFound from "./components/not-found/NotFound";
+import { lazy, Suspense } from "react";
 import "./App.scss";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import FilterByIngredients from "./components/filter-by-ingredients/FilterByIngredients";
+import { createHashRouter, RouterProvider } from "react-router-dom";
+import Layout from "./components/layout/Layout";
+const Home = lazy(() => import("./components/home/Home"));
+
+// import Home from "./components/home/Home";
+import MealDetails from "./components/meal-details/MealDetails";
+const Ingredients = lazy(() => import("./components/ingredients/Ingredients"));
+
+// import Ingredients from "./components/ingredients/Ingredients";
+import NotFound from "./components/not-found/NotFound";
+import Loader from "./components/loader/Loader";
+const FilterByIngredients = lazy(() =>
+  import("./components/filter-by-ingredients/FilterByIngredients")
+);
+
+// import FilterByIngredients from "./components/filter-by-ingredients/FilterByIngredients";
 import Area from "./components/area/Area";
 
 const query = new QueryClient();
@@ -21,26 +30,19 @@ const router = createHashRouter([
     children: [
       {
         index: true,
-        element: <Home />,
-      },
-      
-      {
-        path: "/",
-        element: <Home />,
-      //   children: [
-      //   {
-      //     path: "category/:category",
-      //     element: <Home />,
-      //   },
-      //   {
-      //     path: "mealdetails/:id",
-      //     element: <MealDetails />,
-      //   },
-      // ],
+        element: (
+          <Suspense fallback={<Loader />}>
+            <Home />
+          </Suspense>
+        ),
       },
       {
         path: "category/:category",
-        element: <Home />,
+        element: (
+          <Suspense fallback={<Loader />}>
+            <Home />
+          </Suspense>
+        ),
       },
       {
         path: "mealdetails/:id",
@@ -48,7 +50,11 @@ const router = createHashRouter([
       },
       {
         path: "ingredients",
-        element: <Ingredients />,
+        element: (
+          <Suspense fallback={<Loader />}>
+            <Ingredients />
+          </Suspense>
+        ),
       },
       {
         path: "area",
@@ -56,7 +62,11 @@ const router = createHashRouter([
       },
       {
         path: "ingredients/:mealName",
-        element: <FilterByIngredients />,
+        element: (
+          <Suspense fallback={<Loader />}>
+            <FilterByIngredients />,
+          </Suspense>
+        ),
       },
       {
         path: "*",

@@ -6,7 +6,6 @@ import { GiMeal } from "react-icons/gi";
 
 export default function SideMenu() {
   const location = useLocation();
-  console.log(location.pathname.startsWith("/category/"));
 
   return (
     <>
@@ -51,7 +50,6 @@ export default function SideMenu() {
                       ? "active"
                       : ""
                   }`}
-                  // onClick={() => handleLinkClick(0)}
                   to={"/"}
                 >
                   <GiMeal />
@@ -59,23 +57,13 @@ export default function SideMenu() {
                 </NavLink>
               </li>
               <li>
-                <NavLink
-                  // className={activeLinks[1] ? "menuLink active" : "menuLink"}
-                  className={"menuLink"}
-                  // onClick={() => handleLinkClick(1)}
-                  to={"/ingredients"}
-                >
+                <NavLink className={"menuLink"} to={"/ingredients"}>
                   <GiMeal />
                   <span className="ms-3">Ingredients</span>
                 </NavLink>
               </li>
               <li>
-                <NavLink
-                  // className={activeLinks[2] ? "menuLink active" : "menuLink"}
-                  className={"menuLink"}
-                  // onClick={() => handleLinkClick(2)}
-                  to={"/area"}
-                >
+                <NavLink className={"menuLink"} to={"/area"}>
                   <GiMeal />
                   <span className="ms-3">Area</span>
                 </NavLink>
