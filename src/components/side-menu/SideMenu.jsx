@@ -1,17 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import style from "./sideMenu.module.scss";
 import logo from "../../assets/logo-BfNap0Pe.png";
 import { Link, NavLink } from "react-router-dom";
 import { GiMeal } from "react-icons/gi";
 
 export default function SideMenu() {
-  const [activeLinks, setActiveLinks] = useState([false, false, false]);
+  const [activeLinks, setActiveLinks] = useState([true, false, false]);
+
   const handleLinkClick = (index) => {
     const updatedLinks = activeLinks.map((_, idx) =>
       idx === index ? true : false
     );
     setActiveLinks(updatedLinks);
   };
+  
 
   return (
     <>
