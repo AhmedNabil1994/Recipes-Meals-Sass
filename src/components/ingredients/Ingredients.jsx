@@ -6,10 +6,6 @@ import { useQuery } from "@tanstack/react-query";
 import Loader from "./../loader/Loader";
 
 export default function Ingredients() {
-  //   const { category } = useParams();
-  //   const navigate = useNavigate();
-  //   console.log(category);
-
   const getIngredients = async () => {
     return await axios.get(
       `https://www.themealdb.com/api/json/v1/1/list.php?i=list`
@@ -29,7 +25,7 @@ export default function Ingredients() {
       {isLoading ? (
         <Loader />
       ) : (
-        <section>
+        <section className={style.ingredientsContainer}>
           <h1>All Ingredients</h1>
           {ingredients && (
             <div className={`flex flex-wrap mt-24 ${style.ingredients}`}>
