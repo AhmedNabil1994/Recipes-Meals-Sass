@@ -9,6 +9,7 @@ import "./App.scss";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import FilterByIngredients from "./components/filter-by-ingredients/FilterByIngredients";
+import Area from "./components/area/Area";
 
 const query = new QueryClient();
 
@@ -48,6 +49,10 @@ const router = createHashRouter([
       {
         path: "ingredients",
         element: <Ingredients />,
+      },
+      {
+        path: "area",
+        element: <Area />,
       },
       {
         path: "ingredients/:mealName",
