@@ -1,17 +1,42 @@
-@mixin sideMenuBtn($color, $fw) {
-  display: flex;
-  align-items: center;
-  padding: 0.5rem 0 0.5rem 1.5rem;
-  font-size: 1.125rem;
-  border-radius: 0.75rem;
-  margin-bottom: 1.5rem;
-  color: $color;
-  font-weight: $fw;
-}
+// @mixin sideMenuBtn($color, $fw) {
+//   font-weight: $fw;
+//   color: $color;
+//   padding: 0.5rem 0 0.5rem 1.5rem;
+//   border-radius: 0.75rem;
+// }
 
-@mixin mealDetailsBtn($color) {
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  background-color: $color;
+// @mixin mealDetailsBtn($color) {
+//   color: white;
+//   padding: 0.5rem 1rem;
+//   border-radius: 0.5rem;
+//   background-color: $color;
+//   transition: all 0.3s;
+//   &:hover {
+//     background-color: darken($color, 10%);
+//   }
+// }
+
+@mixin button(
+  $fw,
+  $bg-color,
+  $text-color,
+  $padding,
+  $br,
+  $shadow,
+  $transition,
+  $hover: () // empty map as default
+) {
+  font-weight: $fw;
+  background-color: $bg-color;
+  color: $text-color;
+  padding: $padding;
+  border-radius: $br;
+  box-shadow: $shadow;
+  transition: $transition;
+
+  &:hover {
+    @each $property, $value in $hover {
+      #{$property}: #{$value} ;
+    }
+  }
 }
