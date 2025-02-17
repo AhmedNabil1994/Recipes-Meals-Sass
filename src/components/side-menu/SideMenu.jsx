@@ -1,19 +1,11 @@
 import React, { useEffect, useState } from "react";
 import style from "./sideMenu.module.scss";
 import logo from "../../assets/logo-BfNap0Pe.png";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { GiMeal } from "react-icons/gi";
 
 export default function SideMenu() {
-  const [activeLinks, setActiveLinks] = useState([true, false, false]);
-
-  const handleLinkClick = (index) => {
-    const updatedLinks = activeLinks.map((_, idx) =>
-      idx === index ? true : false
-    );
-    setActiveLinks(updatedLinks);
-  };
-  
+  const location = useLocation();
 
   return (
     <>
@@ -50,9 +42,14 @@ export default function SideMenu() {
             <ul>
               <li>
                 <NavLink
-                  className={activeLinks[0] ? "menuLink active" : "menuLink"}
-                  // className={"menuLink"}
-                  onClick={() => handleLinkClick(0)}
+                  // to insure that still active in these routes
+                  className={`menuLink ${
+                    location.pathname === "/" ||
+                    location.pathname.startsWith("/category/") ||
+                    location.pathname.startsWith("/mealdetails/")
+                      ? "active"
+                      : ""
+                  }`}
                   to={"/"}
                 >
                   <GiMeal />
@@ -60,21 +57,13 @@ export default function SideMenu() {
                 </NavLink>
               </li>
               <li>
-                <NavLink
-                  className={activeLinks[1] ? "menuLink active" : "menuLink"}
-                  onClick={() => handleLinkClick(1)}
-                  to={"/ingredients"}
-                >
+                <NavLink className={"menuLink"} to={"/ingredients"}>
                   <GiMeal />
                   <span className="ms-3">Ingredients</span>
                 </NavLink>
               </li>
               <li>
-                <NavLink
-                  className={activeLinks[2] ? "menuLink active" : "menuLink"}
-                  onClick={() => handleLinkClick(2)}
-                  to={"/area"}
-                >
+                <NavLink className={"menuLink"} to={"/area"}>
                   <GiMeal />
                   <span className="ms-3">Area</span>
                 </NavLink>
