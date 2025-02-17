@@ -28,7 +28,7 @@ export default function FilterByArea() {
         <Loader />
       ) : (
         <section className={style.filterByArea}>
-          <h1>All meals in {areaName}</h1>
+          <h1>All meals as {areaName}</h1>
           {meals && (
             <div className={`flex flex-wrap mt-24 ${style.meals}`}>
               {meals.map((meal) => (
