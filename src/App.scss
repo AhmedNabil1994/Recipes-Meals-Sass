@@ -1,14 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
 @import "./scss/_variables";
 
-
 body {
   font-family: $body-font;
   background-color: #f4f2ee;
 }
 
 .active.link,
-.active:hover.link {
+.active.link:hover {
   background-color: black;
   color: white;
+}
+
+ul li a.active.menuLink,
+ul li a.active.menuLink:hover {
+  background-color: $menu-color;
+  color: white;
+  box-shadow: 0 10px 15px -3px $menu-color;
+  border: none;
 }

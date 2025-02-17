@@ -10,28 +10,6 @@
         align-items: center;
         font-size: 1.125rem;
         margin-bottom: 1.5rem;
-      }
-      &:first-child a {
-        @include button(
-          600,
-          $menu-color,
-          white,
-          0.5rem 0 0.5rem 1.5rem,
-          0.75rem,
-          0 10px 15px -3px $menu-color,
-          all 0.15s,
-          (
-            transform: scale(1.05),
-            box-shadow: 0 20px 25px -5px #fff7ed,
-          )
-        );
-        // transition: all 0.15s;
-        // @include sideMenuBtn(white, 600);
-        // background-color: $menu-color;
-        // box-shadow: 0 8px 14px -3px $menu-color;
-      }
-      &:nth-child(2) a,
-      &:last-child a {
         border: 1px solid rgb(209, 213, 219);
         @include button(
           500,
@@ -46,8 +24,6 @@
             box-shadow: 0 20px 25px -5px #fff7ed,
           )
         );
-        // transition: all 0.15s;
-        // @include sideMenuBtn(black, 500);
       }
     }
   }

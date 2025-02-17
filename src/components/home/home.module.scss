@@ -1,21 +1,11 @@
 @import "../../scss/_variables";
 @import "../../scss/_mixin";
+@import "../../scss/_placeholders";
 
 .home {
   padding: 2rem 1rem;
   h1 {
-    font-family: $title-font;
-    font-weight: 700;
-    font-size: 2.25rem;
-    background-image: linear-gradient(
-      to right,
-      $menu-color,
-      #ca1023c4,
-      $secondary-hover-color
-    );
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    @extend %heading1Style;
   }
   select {
     display: block;
@@ -60,9 +50,7 @@
     }
   }
   .meals {
-    margin-right: -0.75rem;
-    margin-left: -0.75rem;
-    row-gap: 5rem;
+    @extend %rowMarginsAndGutter;
   }
   .notFound {
     margin-top: 3rem;
